@@ -11,27 +11,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Veranavy">
+
         <activity
-            android:name=".pertemuan2.Tabung"
+            android:name=".pertemuan4.TabungActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pertemuan4.PersegiPanjangActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pertemuan4.Custom1Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pertemuan4.DashboardActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pertemuan4.Custom2Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pertemuan3.ThirdResultActivity"
             android:exported="false" />
+
         <activity
-            android:name=".pertemuan2.PersegiPanjang"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan2.MainMenu"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan2.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".pertemuan3.ThirdActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

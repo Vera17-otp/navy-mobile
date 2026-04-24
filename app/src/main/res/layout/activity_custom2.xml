@@ -1,0 +1,70 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001F3F"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvTitleStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monitor Perjalanan"
+        android:textColor="#D4AF37"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDescStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimasi tiba dalam 15 menit"
+        android:textColor="#FFFFFF"
+        android:alpha="0.8" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="#0D1E3A5F"
+        app:cardCornerRadius="24dp">
+
+        <LinearLayout
+            android:padding="24dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView android:text="RUTE AKTIF" android:textColor="#D4AF37" android:textSize="12sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="Bandara SSK II ➔ Hotel Pangeran" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#40FFFFFF" android:layout_marginVertical="20dp"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+                <LinearLayout android:orientation="vertical" android:layout_columnWeight="1">
+                    <TextView android:text="Driver" android:textColor="#B0B0B0" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="Pak Rahmat" android:textColor="#FFFFFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_columnWeight="1">
+                    <TextView android:text="Plat Nomor" android:textColor="#B0B0B0" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <TextView android:text="BM 1234 VR" android:textColor="#FFFFFF" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </GridLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:text="Hubungi Driver"
+        android:textAllCaps="false"
+        app:cornerRadius="16dp"
+        app:backgroundTint="#FF8C00"/>
+
+</LinearLayout>

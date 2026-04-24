@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">vera-navy</string>
+    <string name="app_name">MyApp</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_desc">Sign in to continue your journey</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="welcome_message">Selamat Datang</string>
+    <string name="welcome_subtitle">You have successfully logged in</string>
 </resources>
