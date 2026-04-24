@@ -12,6 +12,7 @@ class Custom1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         // Inflate layout menggunakan View Binding
         binding = ActivityCustom1Binding.inflate(layoutInflater)
         setContentView(binding.root)
