@@ -16,6 +16,8 @@ class Custom1Activity : AppCompatActivity() {
         binding = ActivityCustom1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         // Menerima data Intent dari DashboardActivity
         // "EXTRA_TITLE" dan "EXTRA_DESC" adalah kunci (key) yang dikirim dari Dashboard
         val judul = intent.getStringExtra("EXTRA_TITLE")
