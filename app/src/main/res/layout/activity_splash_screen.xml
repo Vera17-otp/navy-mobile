@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navy_dark">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/ivLogoSplash"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/pertanahan_logo"
+        android:contentDescription="Logo Pertanahan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <!-- Nama Aplikasi -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="PERTANAHAN"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/gold"
+        android:letterSpacing="0.1"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoSplash" />
+
+    <!-- Slogan -->
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Sistem Informasi Pertanahan Digital"
+        android:textSize="14sp"
+        android:textColor="@color/gold_light"
+        android:fontFamily="sans-serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+    <!-- Info Kontak (seperti di gambar dashboard kamu) -->
+    <LinearLayout
+        android:id="@+id/llContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="info@pertanahan.go.id"
+            android:textSize="12sp"
+            android:textColor="@color/navy_light"
+            android:alpha="0.9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="+62 812 3456 7890"
+            android:textSize="12sp"
+            android:textColor="@color/navy_light"
+            android:alpha="0.9" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

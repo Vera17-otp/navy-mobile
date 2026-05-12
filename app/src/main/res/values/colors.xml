@@ -1,4 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
     <color name="bg_main">#F8FAFC</color>
     <color name="card_white">#FFFFFF</color>
 
@@ -12,4 +16,12 @@
 
     <color name="error_red">#EF4444</color>
     <color name="success_green">#10B981</color>
+
+    <!-- Tambahan warna Navy & Gold untuk tema Pertanahan -->
+    <color name="navy_dark">#0A1A2F</color>
+    <color name="navy_medium">#1E3A5F</color>
+    <color name="navy_light">#5D7B9A</color>
+    <color name="gold">#D4AF37</color>
+    <color name="gold_light">#E5C572</color>
+    <color name="gold_dark">#B8941F</color>
 </resources>
