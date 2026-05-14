@@ -1,12 +1,16 @@
-package com.example.vera_navy.pertemuan3
+package com.example.vera_navy.Home.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.vera_navy.R
@@ -39,16 +43,16 @@ class ThirdResultActivity : AppCompatActivity() {
         binding.tvPassengerName.text = passengerName
 
         // 2. Menampilkan lokasi pickup ke Card Pickup (mengakses child view)
-        val pickupCard = binding.tripInfoLayout.getChildAt(0) as androidx.cardview.widget.CardView
-        val pickupLinearLayout = pickupCard.getChildAt(0) as android.widget.LinearLayout
+        val pickupCard = binding.tripInfoLayout.getChildAt(0) as CardView
+        val pickupLinearLayout = pickupCard.getChildAt(0) as LinearLayout
 
         // Update teks airport name (TextView ke-4 di LinearLayout, index 3)
         val airportNameTv = pickupLinearLayout.getChildAt(3) as TextView
         airportNameTv.text = pickupLocation
 
         // 3. Menampilkan lokasi destination ke Card Destination
-        val destCard = binding.tripInfoLayout.getChildAt(1) as androidx.cardview.widget.CardView
-        val destLinearLayout = destCard.getChildAt(0) as android.widget.LinearLayout
+        val destCard = binding.tripInfoLayout.getChildAt(1) as CardView
+        val destLinearLayout = destCard.getChildAt(0) as LinearLayout
 
         // Update teks hotel name (TextView ke-3 di LinearLayout, index 2)
         val hotelNameTv = destLinearLayout.getChildAt(2) as TextView
@@ -92,11 +96,11 @@ class ThirdResultActivity : AppCompatActivity() {
         return findButtonRecursively(rootView, "Share")
     }
 
-    private fun findButtonRecursively(view: android.view.View, text: String): Button? {
+    private fun findButtonRecursively(view: View, text: String): Button? {
         if (view is Button && view.text.toString().equals(text, ignoreCase = true)) {
             return view
         }
-        if (view is android.view.ViewGroup) {
+        if (view is ViewGroup) {
             for (i in 0 until view.childCount) {
                 val result = findButtonRecursively(view.getChildAt(i), text)
                 if (result != null) return result

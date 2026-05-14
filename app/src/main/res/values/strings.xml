@@ -7,4 +7,6 @@
     <string name="btn_login">Login</string>
     <string name="welcome_message">Selamat Datang</string>
     <string name="welcome_subtitle">You have successfully logged in</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

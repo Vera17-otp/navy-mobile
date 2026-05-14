@@ -1,4 +1,4 @@
-package com.example.vera_navy.pertemuan3
+package com.example.vera_navy.Home.pertemuan3
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.vera_navy.R
 import com.example.vera_navy.databinding.ActivityThirdBinding
-import com.example.vera_navy.pertemuan4.DashboardActivity
+import com.example.vera_navy.Home.pertemuan4.DashboardActivity
 
 class ThirdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityThirdBinding

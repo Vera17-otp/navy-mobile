@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://tools.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1A1A1A"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        tools:context=".HomeFragment">
+
+        <!-- Welcome Header -->
+        <TextView
+            android:id="@+id/tvWelcomeHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang, admin!"
+            android:textColor="#FBA834"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/welcomeUnderline"
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="#FBA834"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcomeHome"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Label Section -->
+        <TextView
+            android:id="@+id/tvLabelTugas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Tugas Perkuliahan"
+            android:textColor="#FBA834"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/welcomeUnderline"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Flow helper untuk menyusun kartu menjadi 2 kolom (petak besar) -->
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flowTasks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:flow_wrapMode="aligned"
+            app:flow_maxElementsWrap="2"
+            app:flow_horizontalGap="16dp"
+            app:flow_verticalGap="16dp"
+            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelTugas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Card Pertemuan 2 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan2"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan"
+                    android:textColor="#1A1A1A"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Pertemuan 3 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan3"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan"
+                    android:textColor="#1A1A1A"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Pertemuan 4 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan4"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan"
+                    android:textColor="#1A1A1A"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Pertemuan 5 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan5"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web View"
+                    android:textColor="#1A1A1A"
+                    android:textSize="14sp"
+                    android:gravity="center" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Pertemuan 6 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan6"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan"
+                    android:textColor="#1A1A1A"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

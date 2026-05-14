@@ -1,4 +1,4 @@
-package com.example.vera_navy.pertemuan4
+package com.example.vera_navy.Home.pertemuan4
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,7 @@ import com.example.vera_navy.databinding.ActivityDashboardBinding
 // Pastikan import di bawah ini sesuai dengan lokasi folder file kamu
 import com.example.vera_navy.pertemuan4.TabungActivity
 import com.example.vera_navy.pertemuan4.PersegiPanjangActivity
-import com.example.vera_navy.pertemuan4.Custom1Activity
-import com.example.vera_navy.pertemuan4.Custom2Activity
-import com.example.vera_navy.pertemuan3.ThirdActivity // Ini untuk Login/Logout
+import com.example.vera_navy.Home.pertemuan3.ThirdActivity // Ini untuk Login/Logout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
