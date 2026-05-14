@@ -4,40 +4,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F8F9FA"
     android:padding="20dp"
     android:gravity="center_horizontal">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="4dp">
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
+            android:padding="24dp"
             android:gravity="center">
 
-            <View
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profile_image"
                 android:layout_width="80dp"
-                android:layout_height="80dp" />
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pp"
+                app:shapeAppearanceOverlay="@style/CircularShape"
+                app:strokeColor="#C5A059"
+                app:strokeWidth="3dp" />
 
             <TextView
+                android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Nama Pengguna"
-                android:textSize="18sp"
+                android:text="Vera Zakia Ramadani"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="#0D1B2A" />
+                android:textColor="#C5A059" />
 
             <TextView
+                android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="user@example.com"
-                android:textColor="#757575" />
+                android:text="verazakia@gmail.com"
+                android:textColor="#001F3F"
+                android:textSize="14sp"
+                android:alpha="0.7"/>
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:background="#001F3F"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <TableRow android:padding="4dp">
+                    <TextView android:text="TTL" android:textColor="#757575" android:textSize="14sp" />
+                    <TextView android:text=": Cianjur, 17 Oktober 2005" android:textColor="#001F3F" android:textStyle="bold" android:paddingStart="8dp" />
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+                    <TextView android:text="Status" android:textColor="#757575" android:textSize="14sp" />
+                    <TextView android:text=": Pelajar / Mahasiswa" android:textColor="#001F3F" android:textStyle="bold" android:paddingStart="8dp" />
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+                    <TextView android:text="Jurusan" android:textColor="#757575" android:textSize="14sp" />
+                    <TextView android:text=": Teknik Informatika" android:textColor="#001F3F" android:textStyle="bold" android:paddingStart="8dp" />
+                </TableRow>
+
+                <TableRow android:padding="4dp">
+                    <TextView android:text="Alamat" android:textColor="#757575" android:textSize="14sp" />
+                    <TextView android:text=": Cianjur, Jawa Barat" android:textColor="#001F3F" android:textStyle="bold" android:paddingStart="8dp" />
+                </TableRow>
+            </TableLayout>
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
 </LinearLayout>
