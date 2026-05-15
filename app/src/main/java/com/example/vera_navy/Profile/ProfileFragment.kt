@@ -1,10 +1,13 @@
 package com.example.vera_navy.Profile
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.vera_navy.AuthActivity
 import com.example.vera_navy.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -17,6 +20,43 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        displayUserData()
+
+        binding.btnLogout.setOnClickListener {
+            logout()
+        }
+    }
+
+    private fun displayUserData() {
+        val sharedPref = requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+
+        // Ambil data registrasi
+        val name = sharedPref.getString("reg_name", "Vera Zakia Ramadani")
+        val username = sharedPref.getString("reg_username", "verazakia")
+
+        // Tampilkan ke UI
+        binding.userName.text = name
+        binding.userEmail.text = "@$username" // Menampilkan username sebagai handle
+    }
+
+    private fun logout() {
+        val sharedPref = requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            // HANYA hapus status login dan username sesi, JANGAN clear() agar data regis tidak hilang
+            remove("isLogin")
+            remove("username")
+            apply()
+        }
+
+        val intent = Intent(requireActivity(), AuthActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     override fun onDestroyView() {

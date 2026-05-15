@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Veranavy"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
