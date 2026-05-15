@@ -19,6 +19,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupDatePicker()
+
+
         setupReligionSpinner()
 
         binding.btnRegister.setOnClickListener {
