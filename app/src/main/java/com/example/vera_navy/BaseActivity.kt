@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.vera_navy.About.AboutFragment
+import com.example.vera_navy.Message.MessageFragment
 import com.example.vera_navy.Profile.ProfileFragment
 import com.example.vera_navy.databinding.ActivityBaseBinding
 
@@ -29,6 +30,10 @@ class BaseActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.message -> {
+                    replaceFragment(MessageFragment())
                     true
                 }
                 R.id.about -> {

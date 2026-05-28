@@ -3,11 +3,10 @@ package com.example.vera_navy.Home.pertemuan4
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.vera_navy.Home.pertemuan2.PersegiPanjangActivity
+import com.example.vera_navy.Home.pertemuan2.TabungActivity
 import com.example.vera_navy.databinding.ActivityDashboardBinding
-// Pastikan import di bawah ini sesuai dengan lokasi folder file kamu
-import com.example.vera_navy.pertemuan4.TabungActivity
-import com.example.vera_navy.pertemuan4.PersegiPanjangActivity
-import com.example.vera_navy.Home.pertemuan3.ThirdActivity // Ini untuk Login/Logout
+import com.example.vera_navy.Home.pertemuan3.ThirdActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,7 +31,7 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 3. Klik Custom 1 (Airport Transfer / Katalog Armada)
+        // 3. Klik Custom 1
         binding.cardCustom1.setOnClickListener {
             val intent = Intent(this, Custom1Activity::class.java)
             intent.putExtra("EXTRA_TITLE", "Premium Fleet")
@@ -40,7 +39,7 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 4. Klik Custom 2 (Tracking Driver)
+        // 4. Klik Custom 2
         binding.cardCustom2.setOnClickListener {
             val intent = Intent(this, Custom2Activity::class.java)
             intent.putExtra("EXTRA_TITLE", "Airport Live Tracking")
@@ -54,10 +53,9 @@ class DashboardActivity : AppCompatActivity() {
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { _, _ ->
-                    // Kembali ke halaman Login (ThirdActivity)
                     val intent = Intent(this, ThirdActivity::class.java)
                     startActivity(intent)
-                    finishAffinity() // Menghapus tumpukan activity agar tidak bisa back
+                    finishAffinity()
                 }
                 .setNegativeButton("Tidak") { dialog, _ ->
                     dialog.dismiss()

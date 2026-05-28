@@ -36,20 +36,49 @@
             app:layout_constraintTop_toBottomOf="@id/tvWelcomeHome"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- Fitur: ChipGroup & Chips -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:singleSelection="true"
+            app:layout_constraintTop_toBottomOf="@id/welcomeUnderline">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua"
+                android:checked="true"
+                app:chipIcon="@android:drawable/ic_menu_agenda"
+                app:chipIconVisible="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipFavorit"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorit"
+                app:chipIcon="@android:drawable/btn_star_big_on"
+                app:chipIconVisible="true" />
+        </com.google.android.material.chip.ChipGroup>
+
         <!-- Label Section -->
         <TextView
             android:id="@+id/tvLabelTugas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:text="Tugas Perkuliahan"
             android:textColor="#FBA834"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/welcomeUnderline"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupHome"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Flow helper untuk menyusun kartu menjadi 2 kolom (petak besar) -->
+        <!-- Flow helper -->
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flowTasks"
             android:layout_width="0dp"
@@ -59,7 +88,7 @@
             app:flow_maxElementsWrap="2"
             app:flow_horizontalGap="16dp"
             app:flow_verticalGap="16dp"
-            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6"
+            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6,btnSettings"
             app:layout_constraintTop_toBottomOf="@id/tvLabelTugas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -78,21 +107,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    app:tint="#1A1A1A" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pertemuan"
-                    android:textColor="#1A1A1A"
-                    android:textSize="14sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
+                    android:text="Pertemuan 2"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
-                    android:textSize="28sp" />
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -110,21 +137,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_my_calendar"
+                    app:tint="#1A1A1A" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pertemuan"
-                    android:textColor="#1A1A1A"
-                    android:textSize="14sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
+                    android:text="Pertemuan 3"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
-                    android:textSize="28sp" />
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -142,21 +167,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_dialog_map"
+                    app:tint="#1A1A1A" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pertemuan"
-                    android:textColor="#1A1A1A"
-                    android:textSize="14sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4"
+                    android:text="Pertemuan 4"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
-                    android:textSize="28sp" />
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -172,25 +195,21 @@
             android:focusable="true">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="#1A1A1A" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Web View"
-                    android:textColor="#1A1A1A"
-                    android:textSize="14sp"
-                    android:gravity="center" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
+                    android:text="Pertemuan 5"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
-                    android:textSize="28sp" />
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -208,21 +227,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:tint="#1A1A1A" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pertemuan"
-                    android:textColor="#1A1A1A"
-                    android:textSize="14sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6"
+                    android:text="Pertemuan 6"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
-                    android:textSize="28sp" />
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Settings -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#D4AF37"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_manage"
+                    app:tint="#1A1A1A" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
