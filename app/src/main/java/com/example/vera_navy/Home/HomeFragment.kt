@@ -13,6 +13,7 @@ import com.example.vera_navy.Home.Pertemuan7.SeventhActivity
 import com.example.vera_navy.Home.pertemuan2.PersegiPanjangActivity
 import com.example.vera_navy.Home.pertemuan3.ThirdActivity
 import com.example.vera_navy.Home.pertemuan4.DashboardActivity
+import com.example.vera_navy.Home.pertemuan_10.TenthActivity
 import com.example.vera_navy.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -62,6 +63,11 @@ class HomeFragment : Fragment() {
         binding.btnPertemuan6.setOnClickListener {
             val intent = Intent(requireActivity(), SeventhActivity::class.java)
              startActivity(intent)
+        }
+
+        binding.btnPertemuan10.setOnClickListener {
+            val intent = Intent(requireActivity(), TenthActivity::class.java)
+            startActivity(intent)
         }
 
         // Fitur Baru: Navigasi ke SettingsActivity

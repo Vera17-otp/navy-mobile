@@ -88,7 +88,7 @@
             app:flow_maxElementsWrap="2"
             app:flow_horizontalGap="16dp"
             app:flow_verticalGap="16dp"
-            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6,btnSettings"
+            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6,btnPertemuan10,btnSettings"
             app:layout_constraintTop_toBottomOf="@id/tvLabelTugas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -237,6 +237,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pertemuan 6"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Pertemuan 10 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan10"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    app:tint="#1A1A1A" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 10"
                     android:textColor="#1A1A1A"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp" />

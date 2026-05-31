@@ -23,16 +23,17 @@ class MessageAdapter(private val context: Context, private val dataSource: List<
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val rowView = convertView ?: inflater.inflate(R.layout.item_message, parent, false)
 
-        val tvTitle = rowView.findViewById<TextView>(R.id.tvMessageTitle)
-        val tvDescription = rowView.findViewById<TextView>(R.id.tvMessageDescription)
-        val ivUser = rowView.findViewById<ShapeableImageView>(R.id.ivMessageUser)
+        // Sesuaikan ID dengan yang ada di item_message.xml
+        val tvTitle = rowView.findViewById<TextView>(R.id.tvName)
+        val tvDescription = rowView.findViewById<TextView>(R.id.tvMessage)
+        val ivUser = rowView.findViewById<ShapeableImageView>(R.id.ivProfile)
 
         val message = getItem(position) as MessageModel
 
         tvTitle.text = message.name
         tvDescription.text = message.message
 
-        // Langkah 6: Gunakan Glide untuk menampilkan gambar
+        // Gunakan Glide untuk menampilkan gambar
         Glide.with(context)
             .load(message.imageUrl)
             .placeholder(android.R.drawable.ic_menu_report_image)

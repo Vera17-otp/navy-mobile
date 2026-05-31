@@ -67,6 +67,10 @@
             android:name=".Home.Pertemuan7.SeventhActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".Home.pertemuan_10.TenthActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
