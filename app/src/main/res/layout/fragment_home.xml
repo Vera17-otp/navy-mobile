@@ -14,7 +14,6 @@
         android:padding="24dp"
         tools:context=".HomeFragment">
 
-        <!-- Welcome Header -->
         <TextView
             android:id="@+id/tvWelcomeHome"
             android:layout_width="0dp"
@@ -36,7 +35,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvWelcomeHome"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Fitur: ChipGroup & Chips -->
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupHome"
             android:layout_width="match_parent"
@@ -65,7 +63,6 @@
                 app:chipIconVisible="true" />
         </com.google.android.material.chip.ChipGroup>
 
-        <!-- Label Section -->
         <TextView
             android:id="@+id/tvLabelTugas"
             android:layout_width="wrap_content"
@@ -78,7 +75,6 @@
             app:layout_constraintTop_toBottomOf="@id/chipGroupHome"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Flow helper -->
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flowTasks"
             android:layout_width="0dp"
@@ -88,12 +84,11 @@
             app:flow_maxElementsWrap="2"
             app:flow_horizontalGap="16dp"
             app:flow_verticalGap="16dp"
-            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6,btnPertemuan10,btnSettings"
+            app:constraint_referenced_ids="btnPertemuan2,btnPertemuan3,btnPertemuan4,btnPertemuan5,btnPertemuan6,btnPertemuan10,btnPertemuan13,btnSettings"
             app:layout_constraintTop_toBottomOf="@id/tvLabelTugas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Card Pertemuan 2 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan2"
             android:layout_width="0dp"
@@ -123,7 +118,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Pertemuan 3 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan3"
             android:layout_width="0dp"
@@ -153,7 +147,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Pertemuan 4 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan4"
             android:layout_width="0dp"
@@ -183,7 +176,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Pertemuan 5 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan5"
             android:layout_width="0dp"
@@ -213,7 +205,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Pertemuan 6 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan6"
             android:layout_width="0dp"
@@ -243,7 +234,6 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Pertemuan 10 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnPertemuan10"
             android:layout_width="0dp"
@@ -273,7 +263,35 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Settings -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnPertemuan13"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#FBA834"
+            app:cardElevation="4dp"
+            android:clickable="true"
+            android:focusable="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:tint="#1A1A1A" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pertemuan 13"
+                    android:textColor="#1A1A1A"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnSettings"
             android:layout_width="0dp"
@@ -302,6 +320,40 @@
                     android:layout_marginTop="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvLabelBerita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Berita Terkini"
+            android:textColor="#FBA834"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/flowTasks"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:theme="@style/Widget.AppCompat.ProgressBar"
+            app:layout_constraintTop_toBottomOf="@id/tvLabelBerita"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/progressBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:listitem="@layout/item_news" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

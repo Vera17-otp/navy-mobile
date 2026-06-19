@@ -1,14 +1,22 @@
 package com.example.vera_navy.Message
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import com.example.vera_navy.Message.MessageAdapter
-import com.example.vera_navy.Message.MessageModel
+import androidx.lifecycle.Lifecycle
+import com.example.vera_navy.R
 import com.example.vera_navy.databinding.FragmentMessageBinding
+import com.example.vera_navy.tutorial.TutorialMessageActivity
 
 class MessageFragment : Fragment() {
 
@@ -26,7 +34,11 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Langkah 5: Definisikan list data message dengan URL Avatar yang Realistis
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Message"
+
+        setupMenu()
+
+        // Langkah 5: Definisikan list data message
         val listData = listOf(
             MessageModel("Alya", "Halo! Apa kabar?", "https://i.pravatar.cc/150?u=alya"),
             MessageModel("Budi", "Sudah makan?", "https://i.pravatar.cc/150?u=budi"),
@@ -45,6 +57,26 @@ class MessageFragment : Fragment() {
             val selectedMessage = listData[position]
             Toast.makeText(requireContext(), "Membuka pesan dari ${selectedMessage.name}", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setupMenu() {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.menu_message, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.action_tutorial -> {
+                        val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     override fun onDestroyView() {

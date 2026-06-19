@@ -86,12 +86,7 @@ class TabCFragment : Fragment() {
         }
 
         binding.rvProducts.apply {
-            /** Mode Grid **/
             layoutManager = GridLayoutManager(requireContext(), 2)
-            
-            /** Jika ingin model Linear **/
-            //layoutManager = LinearLayoutManager(requireContext())
-            
             this.adapter = adapter
         }
     }

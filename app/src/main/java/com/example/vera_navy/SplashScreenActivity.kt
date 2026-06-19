@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.vera_navy.tutorial.TutorialMessageActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,9 +16,12 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)
+            val isOnboardingFinished = sharedPref.getBoolean("onboarding_finished", false)
 
             if (isLogin) {
                 startActivity(Intent(this, BaseActivity::class.java))
+            } else if (!isOnboardingFinished) {
+                startActivity(Intent(this, TutorialMessageActivity::class.java))
             } else {
                 startActivity(Intent(this, AuthActivity::class.java))
             }
