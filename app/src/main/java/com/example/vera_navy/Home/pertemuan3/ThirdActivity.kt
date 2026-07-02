@@ -27,6 +27,11 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
 
+        // Fungsi Tombol Back
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.buttonSubmit.setOnClickListener {
             // ========== MENGAMBIL DATA DARI FORM AIRPORT TRANSFER ==========
             val passengerName = binding.inputNama.text.toString()

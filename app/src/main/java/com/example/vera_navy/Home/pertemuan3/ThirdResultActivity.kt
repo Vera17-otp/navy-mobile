@@ -32,6 +32,11 @@ class ThirdResultActivity : AppCompatActivity() {
             insets
         }
 
+        // Tombol Back
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         // ========== MENERIMA DATA DARI ThirdActivity ==========
         val passengerName = intent.getStringExtra("PASSENGER_NAME") ?: "Budi Santoso"
         val pickupLocation = intent.getStringExtra("PICKUP_LOCATION") ?: "Soekarno-Hatta Airport"
@@ -62,8 +67,6 @@ class ThirdResultActivity : AppCompatActivity() {
         Toast.makeText(this, "Booking confirmed for $passengerName!", Toast.LENGTH_SHORT).show()
 
         // ========== IMPLEMENTASI TOMBOL SHARE ==========
-        // Mencari tombol Share di dalam Status Card (CardView terakhir)
-        // Cara: cari semua Button yang ada di layout
         val shareButton = findShareButton()
         shareButton?.setOnClickListener {
             val shareMessage = """
@@ -91,7 +94,6 @@ class ThirdResultActivity : AppCompatActivity() {
     }
 
     private fun findShareButton(): Button? {
-        // Mencari tombol dengan teks "Share" di seluruh layout
         val rootView = binding.root
         return findButtonRecursively(rootView, "Share")
     }

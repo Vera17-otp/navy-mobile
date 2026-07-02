@@ -40,12 +40,12 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="72dp"
         android:background="@color/navy_dark"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:itemRippleColor="#33FFFFFF"
-        app:itemActiveIndicatorStyle="@style/Widget.Material3.BottomNavigationView.ActiveIndicator"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent" />
 

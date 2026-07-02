@@ -1,10 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.Veranavy" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Konfigurasi navigasi bawah secara global -->
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
     </style>
 
     <style name="Theme.Veranavy" parent="Base.Theme.Veranavy" />
 
     <style name="CircularShape">
         <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Style Bottom Navigation untuk menghilangkan tabrakan kapsul dengan teks -->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/App.Indicator.None</item>
+    </style>
+
+    <!-- Memaksa ukuran indikator menjadi 0 agar tidak menimpa label -->
+    <style name="App.Indicator.None" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">0dp</item>
+        <item name="android:height">0dp</item>
     </style>
 </resources>
