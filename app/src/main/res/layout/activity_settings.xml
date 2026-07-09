@@ -7,13 +7,23 @@
     android:background="@drawable/bg_settings_gradient"
     android:padding="16dp">
 
-    <!-- Header menggunakan GridLayout standar (menggunakan android: namespace) -->
+    <!-- Header dengan Tombol Back -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
+        android:columnCount="3"
         android:rowCount="1"
         android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBackSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back_white"
+            app:tint="@color/gold"
+            android:layout_column="0"
+            android:contentDescription="Back to Home" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,15 +32,17 @@
             android:textColor="@color/gold"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_column="0" />
+            android:layout_gravity="center_vertical"
+            android:layout_column="1"
+            android:layout_marginStart="8dp" />
 
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_manage"
             app:tint="@color/gold"
-            android:layout_gravity="end"
-            android:layout_column="1" />
+            android:layout_gravity="end|center_vertical"
+            android:layout_column="2" />
     </GridLayout>
 
     <!-- ChipGroup -->

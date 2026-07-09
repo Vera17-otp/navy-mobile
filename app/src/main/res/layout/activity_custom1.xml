@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:navigationIcon="?attr/homeAsUpIndicator" />
+                app:navigationIcon="@drawable/ic_back_white" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -99,6 +99,16 @@
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackToHome"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Kembali ke Home"
+                app:cornerRadius="16dp"
+                android:backgroundTint="#001F3F"
+                android:textColor="#FFFFFF"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

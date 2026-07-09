@@ -17,10 +17,15 @@ class Custom1Activity : AppCompatActivity() {
         // Setup Toolbar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "" // Judul bisa dikosongkan jika menggunakan CollapsingToolbarLayout
+        supportActionBar?.title = ""
 
         binding.toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+            finish()
+        }
+
+        // Tombol Kembali ke Home di bagian bawah layout
+        binding.btnBackToHome.setOnClickListener {
+            finish()
         }
 
         val judul = intent.getStringExtra("EXTRA_TITLE")

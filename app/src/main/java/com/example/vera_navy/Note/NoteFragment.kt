@@ -1,33 +1,28 @@
 package com.example.vera_navy.Note
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.example.vera_navy.BaseActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.vera_navy.Data.AppDatabase
+import com.example.vera_navy.Data.entity.NoteEntity
 import com.example.vera_navy.databinding.FragmentNoteBinding
-import com.example.vera_navy.utils.NotificationHelper
-import com.example.vera_navy.utils.PermissionHelper
+import kotlinx.coroutines.launch
 
 class NoteFragment : Fragment() {
 
     private var _binding: FragmentNoteBinding? = null
     private val binding get() = _binding!!
 
-    private val notificationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            Toast.makeText(requireContext(), "Izin notifikasi diberikan", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(requireContext(), "Izin notifikasi ditolak", Toast.LENGTH_SHORT).show()
-        }
-    }
+    /** Variabel database & Adapter **/
+    private lateinit var adapter: NoteAdapter
+    private lateinit var db: AppDatabase
+    private val notes = mutableListOf<NoteEntity>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,39 +35,51 @@ class NoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        checkNotificationPermission()
+        // Setup Toolbar Title
+        binding.toolbar.title = "Note"
 
-        binding.btnSaveNote.setOnClickListener {
-            val noteText = binding.etNote.text.toString()
-            val intent = Intent(requireContext(), BaseActivity::class.java)
+        /** Inisialisasi AppDatabase & Adapter **/
+        db = AppDatabase.getInstance(requireContext())
+        // MATERI PERTEMUAN 12: Menambahkan parameter fragment 'this' untuk aksi hapus
+        adapter = NoteAdapter(notes, this)
 
-            if (noteText.isNotEmpty()) {
-                // Menggunakan NotificationHelper sesuai materi dosen
-                NotificationHelper.showNotification(
-                    requireContext(),
-                    "Catatan Bina Desa",
-                    "Halo, catatan '$noteText' telah berhasil disimpan",
-                    intent
-                )
-                
-                Toast.makeText(requireContext(), "Catatan berhasil disimpan!", Toast.LENGTH_SHORT).show()
-                binding.etNote.text?.clear()
-            } else {
-                Toast.makeText(requireContext(), "Catatan tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }
+        binding.rvNotes.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvNotes.adapter = adapter
+
+        /** Tambah ini sebagai garis pemisah **/
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        binding.rvNotes.addItemDecoration(dividerItemDecoration)
+
+        fetchNotes()
+
+        // FAB membuka NoteFormActivity
+        binding.fabAddNote.setOnClickListener {
+            val intent = Intent(requireContext(), NoteFormActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    private fun checkNotificationPermission() {
-        if (PermissionHelper.isNotificationPermissionRequired()) {
-            val permission = Manifest.permission.POST_NOTIFICATIONS
-            if (!PermissionHelper.hasPermission(requireContext(), permission)) {
-                PermissionHelper.requestPermission(
-                    notificationPermissionLauncher,
-                    permission
-                )
-            }
+    private fun fetchNotes() {
+        lifecycleScope.launch {
+            val data = db.noteDao().getAll() // pemanggilan query
+            notes.clear()
+            notes.addAll(data)
+            adapter.notifyDataSetChanged()
         }
+    }
+
+    /** MATERI PERTEMUAN 12: Fungsi untuk menghapus data dari database **/
+    fun deleteNote(note: NoteEntity) {
+        lifecycleScope.launch {
+            db.noteDao().delete(note) // Hapus Note
+            fetchNotes() // Fetch lagi data notes terbaru
+        }
+    }
+
+    /** Memastikan data diupdate otomatis saat kembali dari Form **/
+    override fun onResume() {
+        super.onResume()
+        fetchNotes()
     }
 
     override fun onDestroyView() {

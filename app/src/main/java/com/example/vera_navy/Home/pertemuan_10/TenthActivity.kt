@@ -18,7 +18,7 @@ class TenthActivity : AppCompatActivity() {
 
         // Setup Toolbar
         binding.toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
+            finish()
         }
 
         // 1. Inisialisasi Adapter
@@ -32,21 +32,20 @@ class TenthActivity : AppCompatActivity() {
             // Atur judul, icon, dan badge untuk setiap tab
             when (position) {
                 0 -> {
-                    tab.text = "Tab A"
+                    tab.text = "Layanan"
                     tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
-                    val badge = tab.getOrCreateBadge()
-                    badge.isVisible = true
+                    // Hapus badge jika tidak diperlukan untuk tab pertama
                 }
                 1 -> {
-                    tab.text = "Tab B"
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    tab.text = "Berkas"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_note)
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
-                    badge.number = 5
+                    badge.number = 2
                 }
                 2 -> {
-                    tab.text = "Produk"
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
+                    tab.text = "Info"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_notification)
                 }
             }
         }.attach()

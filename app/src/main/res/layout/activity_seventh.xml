@@ -31,27 +31,32 @@
             android:textAllCaps="false"
             app:cornerRadius="20dp"
             app:backgroundTint="#0D1B2A"
-            android:textColor="#D4AF37"/> <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFrag2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="4dp"
-        android:text="Frag 2"
-        android:textAllCaps="false"
-        app:cornerRadius="20dp"
-        app:backgroundTint="#0D1B2A"
-        android:textColor="#D4AF37"/> <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFrag3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="4dp"
-        android:text="Frag 3"
-        android:textAllCaps="false"
-        app:cornerRadius="20dp"
-        app:backgroundTint="#0D1B2A"
-        android:textColor="#D4AF37"/> </LinearLayout>
+            android:textColor="#D4AF37"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFrag2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="Frag 2"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#0D1B2A"
+            android:textColor="#D4AF37"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFrag3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:text="Frag 3"
+            android:textAllCaps="false"
+            app:cornerRadius="20dp"
+            app:backgroundTint="#0D1B2A"
+            android:textColor="#D4AF37"/>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_container"

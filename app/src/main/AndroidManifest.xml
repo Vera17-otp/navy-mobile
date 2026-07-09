@@ -95,6 +95,10 @@
             android:name=".Home.pertemuan_13.ThirteenthActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".Note.NoteFormActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".utils.ReminderReceiver"
             android:exported="false" />

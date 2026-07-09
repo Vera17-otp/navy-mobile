@@ -15,6 +15,11 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Tombol Kembali ke Home
+        binding.btnBackSettings.setOnClickListener {
+            finish()
+        }
+
         // 1. Setup ListView dengan ArrayAdapter
         setupListView()
 

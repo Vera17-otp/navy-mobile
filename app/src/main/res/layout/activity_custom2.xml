@@ -7,6 +7,16 @@
     android:orientation="vertical"
     android:padding="24dp">
 
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_back_white"
+        app:tint="#D4AF37"
+        android:contentDescription="Back"
+        android:layout_marginBottom="16dp"/>
+
     <TextView
         android:id="@+id/tvTitleStatus"
         android:layout_width="wrap_content"
@@ -59,6 +69,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContact"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"

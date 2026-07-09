@@ -30,6 +30,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/headerBackground" />
 
+    <!-- MATERI PERTEMUAN 6: Tombol Logout -->
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_logout"
+        app:tint="#D4AF37"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/headerBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/headerBackground"
+        android:contentDescription="Logout" />
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"

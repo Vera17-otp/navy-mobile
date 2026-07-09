@@ -3,6 +3,8 @@ package com.example.vera_navy.Home.Pertemuan5
 import android.graphics.Bitmap
 import android.net.http.SslError
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.SslErrorHandler
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceError
@@ -13,6 +15,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.example.vera_navy.R
 import com.example.vera_navy.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {
@@ -45,20 +48,36 @@ class WebViewActivity : AppCompatActivity() {
         })
     }
 
+    // --- MATERI OPTION MENU (LANGKAH 3) ---
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_search -> {
+                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_settings -> {
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    // ---------------------------------------
+
     private fun setupWebView() {
         binding.webView.apply {
-            // 1. WebViewClient untuk menangani navigasi dan error
             webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                     super.onPageStarted(view, url, favicon)
-                    // Tampilkan progress bar saat loading (jika ada di XML kamu)
-                    // binding.progressBar.visibility = View.VISIBLE
                 }
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    // Sembunyikan progress bar
-                    // binding.progressBar.visibility = View.GONE
                 }
 
                 override fun onReceivedError(
@@ -66,7 +85,6 @@ class WebViewActivity : AppCompatActivity() {
                     request: WebResourceRequest?,
                     error: WebResourceError?
                 ) {
-                    // Jika terjadi error, kita beri tahu user atau tampilkan halaman custom
                     Toast.makeText(this@WebViewActivity, "Gagal memuat halaman: ${error?.description}", Toast.LENGTH_SHORT).show()
                     super.onReceivedError(view, request, error)
                 }
@@ -76,38 +94,28 @@ class WebViewActivity : AppCompatActivity() {
                     handler: SslErrorHandler?,
                     error: SslError?
                 ) {
-                    // Paksa lanjut jika ada masalah sertifikat SSL (berguna untuk testing emulator)
                     handler?.proceed()
                 }
             }
 
-            // 2. WebChromeClient untuk fitur browser seperti progress bar dan alert javascript
             webChromeClient = WebChromeClient()
 
-            // 3. Pengaturan WebSettings yang optimal
             settings.apply {
-                javaScriptEnabled = true            // Aktifkan JS
-                domStorageEnabled = true           // WAJIB untuk web modern/login
+                javaScriptEnabled = true
+                domStorageEnabled = true
                 databaseEnabled = true
                 allowContentAccess = true
                 allowFileAccess = true
-
-                // Pengaturan tampilan
                 useWideViewPort = true
                 loadWithOverviewMode = true
                 setSupportZoom(true)
                 builtInZoomControls = true
                 displayZoomControls = false
-
-                // Cache & Mixed Content
                 cacheMode = WebSettings.LOAD_DEFAULT
                 mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-
-                // User Agent agar terdeteksi sebagai Chrome Mobile asli
                 userAgentString = "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36"
             }
 
-            // 4. Load URL
             loadUrl("https://zakiavr.alwaysdata.net/login")
         }
     }
@@ -125,7 +133,6 @@ class WebViewActivity : AppCompatActivity() {
         return true
     }
 
-    // Pastikan WebView dihancurkan saat activity selesai untuk mencegah memory leak
     override fun onDestroy() {
         binding.webView.stopLoading()
         binding.webView.destroy()

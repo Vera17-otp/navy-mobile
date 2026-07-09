@@ -1,6 +1,9 @@
 package com.example.vera_navy
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.vera_navy.About.AboutFragment
@@ -21,9 +24,36 @@ class BaseActivity : AppCompatActivity() {
         // Sembunyikan action bar bawaan agar tampilan kustom kita rapi
         supportActionBar?.hide()
 
-        // Munculkan HomeFragment secara default saat pertama kali masuk BaseActivity
-        if (savedInstanceState == null) {
+        // Handle fragment yang harus dibuka (misal dari notifikasi)
+        val openFragment = intent.getStringExtra("OPEN_FRAGMENT")
+        if (openFragment == "NOTE") {
+            replaceFragment(NoteFragment())
+            binding.bottomNavigation.selectedItemId = R.id.note
+        } else if (savedInstanceState == null) {
+            // Default awal
             replaceFragment(HomeFragment())
+        }
+
+        // MATERI PERTEMUAN 6: Fitur Logout melalui btnLogout
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Konfirmasi Logout")
+                .setMessage("Apakah Anda yakin ingin keluar?")
+                .setPositiveButton("Ya") { _, _ ->
+                    // Hapus data status login di SharedPreferences
+                    val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.remove("isLogin")
+                    editor.remove("username")
+                    editor.apply()
+
+                    // Kembali ke halaman Login
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Tidak", null)
+                .show()
         }
 
         // Mengatur aksi klik navigasi bawah yang berlaku secara global

@@ -3,6 +3,7 @@ package com.example.vera_navy
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vera_navy.databinding.ActivityAuthBinding
 
@@ -17,33 +18,15 @@ class AuthActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
-            // Reset Errors
-            binding.tilUsername.error = null
-            binding.tilPassword.error = null
-
             val username = binding.etUsername.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
-            // Ambil data dari SharedPreferences hasil registrasi
+            // Ambil data hasil registrasi dari SharedPreferences
             val savedUsername = sharedPref.getString("reg_username", "")
             val savedPassword = sharedPref.getString("reg_password", "")
 
-            if (username.isEmpty()) {
-                binding.tilUsername.error = "Username tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            if (password.isEmpty()) {
-                binding.tilPassword.error = "Password tidak boleh kosong"
-                return@setOnClickListener
-            }
-
-            // Rule 1: username == password
-            // Rule 2: username & password sesuai data SharedPreferences
-            val isLoginSuccess = (username == password) || 
-                                 (username == savedUsername && password == savedPassword && savedUsername != "")
-
-            if (isLoginSuccess) {
+            // Login hanya sukses jika sesuai dengan akun yang di-registrasi
+            if (username.isNotEmpty() && username == savedUsername && password == savedPassword) {
                 // Simpan status login
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
@@ -55,9 +38,12 @@ class AuthActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                // Tampilkan error pada field input sesuai permintaan (bukan Dialog)
-                binding.tilUsername.error = "Username atau Password salah"
-                binding.tilPassword.error = "Username atau Password salah"
+                // Tampilkan AlertDialog jika gagal sesuai materi dosen
+                AlertDialog.Builder(this)
+                    .setTitle("Login Gagal")
+                    .setMessage("Silahkan coba lagi")
+                    .setPositiveButton("OK", null)
+                    .show()
             }
         }
 

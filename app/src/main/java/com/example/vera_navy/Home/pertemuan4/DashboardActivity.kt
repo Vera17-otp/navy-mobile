@@ -19,6 +19,11 @@ class DashboardActivity : AppCompatActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Tombol Kembali ke Home
+        binding.btnBackHome.setOnClickListener {
+            finish()
+        }
+
         // 1. Klik untuk halaman Tabung
         binding.cardTabung.setOnClickListener {
             val intent = Intent(this, TabungActivity::class.java)

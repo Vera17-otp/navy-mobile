@@ -23,7 +23,7 @@ class SeventhActivity : AppCompatActivity() {
             replaceFragment(HomeFragment())
         }
 
-        // Kontrol Bottom Bar / Tab Atas untuk menukar Fragment utama
+        // Kontrol navigasi fragment awal
         binding.btnFrag1.setOnClickListener { replaceFragment(HomeFragment()) }
         binding.btnFrag2.setOnClickListener { replaceFragment(AboutFragment()) }
         binding.btnFrag3.setOnClickListener { replaceFragment(ProfileFragment()) }

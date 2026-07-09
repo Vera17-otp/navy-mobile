@@ -1,6 +1,5 @@
 package com.example.vera_navy
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -14,17 +13,9 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-            val isLogin = sharedPref.getBoolean("isLogin", false)
-            val isOnboardingFinished = sharedPref.getBoolean("onboarding_finished", false)
-
-            if (isLogin) {
-                startActivity(Intent(this, BaseActivity::class.java))
-            } else if (!isOnboardingFinished) {
-                startActivity(Intent(this, TutorialMessageActivity::class.java))
-            } else {
-                startActivity(Intent(this, AuthActivity::class.java))
-            }
+            // KEMBALI KE AWAL: Selalu tampilkan onboarding (Tutorial) terlebih dahulu
+            val intent = Intent(this, TutorialMessageActivity::class.java)
+            startActivity(intent)
             finish()
         }, 2000)
     }
